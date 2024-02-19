@@ -1,26 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
-    <title>Bootstrap Sandbox | Popovers & Tooltips</title>
-  </head>
-  <body>
-    <div class="container">
-      <h1 class="mb-5">Popovers & Tooltips</h1>
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			http-equiv="X-UA-Compatible"
+			content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="./assets/css/bootstrap.min.css" />
+		<title>Bootstrap Sandbox | Popovers & Tooltips</title>
+	</head>
+	<body>
+		<div class="container">
+			<h1 class="mb-5">Popovers & Tooltips</h1>
 
-      <!-- Popover -->
+			<!-- Popover -->
+			<button
+				class="btn btn-dark btn-lg"
+				id="popover"
+				data-bs-toggle="popover"
+				data-bs-title="Popover Title"
+				data-bs-contnet="This is the popover content">
+				Toggle Popover
+			</button>
 
-      <br /><br />
+			<br /><br />
 
-      <!-- Tooltip -->
+			<!-- Tooltip -->
+			<p>
+				Lorem ipsum dolor sit amet consectetur
+				<a
+					href="#"
+					data-bs-toggle="tooltip"
+					data-bs-title="Tooltip One"
+					>Tooltip 1</a
+				>
+				adipisicing elit. Reiciendis, tenetur dolor doloribus dolorem
+				repellendus saepe ducimus qui nisi porro officiis harum,
+				<a
+					href="#"
+					data-bs-toggle="tooltip"
+					data-bs-title="Tooltip One"
+					>Tooltip 2</a
+				>
+				voluptatibus consequuntur et tempore repudiandae suscipit mollitia
+				fugiat rerum.
+			</p>
 
-      <!-- Don't go past here -->
-    </div>
-    <div style="margin-top: 350px"></div>
+			<!-- Don't go past here -->
+		</div>
+		<div style="margin-top: 350px"></div>
 
-    <script src="./assets/js/bootstrap.bundle.min.js"></script>
-  </body>
+		<script src="./assets/js/bootstrap.bundle.min.js"></script>
+		<script>
+			const popoverEl = document.getElementById('popover');
+			const popover = new bootstrap.Popover(popoverEl);
+
+			const tooltipTriggerList = document.querySelectorAll(
+				'[data-bs-toggle="tooltip"]'
+			);
+
+			const tooltipList = [...tooltipTriggerList].map((tooltipTriggerEl) => {
+				new bootstrap.Tooltip(tooltipTriggerEl);
+			});
+		</script>
+	</body>
 </html>
